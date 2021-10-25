@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="HandheldFriendly" content="true">
+   <!-- displays site properly based on user's device -->
+
+  <title>Video player</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js" async></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>My video</h1> 
+        <video class="my-video" id="myVideo">
+            <source src="/video/clip1.mp4"/>
+        </video>
+
+        <output class="time-out" id="timeOut">Time: 0</output>
+        <div class="play-buttons">
+            <button class="btn play" id="btnPlay">Play</button>
+            <button class="btn pause" id="btnPause">Pause</button>
+            <button class="btn stop" id="btnStop">Stop</button>
+            <button class="btn volume plus" id="btnVolumePlus">Volume +</button>
+            <button class="btn volume minus" id="btnVolumeMinus">Volume -</button>
+            <button class="btn mute" id ="btnMute">Mute</button>
+            <button class="btn fullscreen" id ="btnFullScreen">FullScreen</button>
+        </div>
+        
+    </div>
+</body>
