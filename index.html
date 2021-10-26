@@ -15,28 +15,28 @@
 <body>
     <div class="container">
         <h1>My video</h1> 
-        <video class="my-video" id="myVideo">
-            <source src="/video/clip1.mp4"/>
-        </video>
+            <video class="my-video" id="myVideo">
+                <source src="/video/clip1.mp4"/>
+            </video>
 
-        <div class="timer"> 
-            <div class = "progress">
-                <progress id="progress" value="0" min="0">
-                    <span id="progress-bar"></span>
-                </progress>
+            <div class="timer"> 
+                <div class = "progress">
+                    <input class="seek" id="seekslider" type="range" min="0" max="100" value="0" step="1"/>
+                </div>
+                <output class="time-out" id="timeOut">Time: 0</output>
             </div>
-            <output class="time-out" id="timeOut">Time: 0</output>
-        </div>
 
-        <div class="play-buttons">
-            <button class="btn play" id="btnPlay">Play</button>
-            <button class="btn pause" id="btnPause">Pause</button>
-            <button class="btn stop" id="btnStop">Stop</button>
-            <button class="btn volume plus" id="btnVolumePlus">Volume +</button>
-            <button class="btn volume minus" id="btnVolumeMinus">Volume -</button>
-            <button class="btn mute" id ="btnMute">Mute</button>
-            <button class="btn fullscreen" id ="btnFullScreen">FullScreen</button>
-        </div>
-        
+            <div class="play-buttons">
+                <button class="btn play" id="btnPlay">Play</button>
+                <button class="btn pause" id="btnPause">Pause</button>
+                <button class="btn stop" id="btnStop">Stop</button>
+                <button class="btn volume plus" id="btnVolumePlus">Volume +</button>
+                <button class="btn volume minus" id="btnVolumeMinus">Volume -</button>
+                <button class="btn mute" id ="btnMute">Mute</button>
+                <button class="btn fullscreen" id ="btnFullScreen">Fullscreen</button>
+                <button class="btn speed up" id="btnSpeedUp">speed +</button>
+                <button class="btn speed slow" id="btnSpeedSlow">speed -</button>
+            </div>
+
     </div>
 </body>

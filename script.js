@@ -7,6 +7,9 @@ const volumeUp = document.getElementById('btnVolumePlus');
 const volumeDown = document.getElementById('btnVolumeMinus');
 const mute = document.getElementById('btnMute');
 const fullScreen = document.getElementById('btnFullScreen');
+const seekslider = document.getElementById('seekslider');
+const speedUp = document.getElementById('btnSpeedUp');
+const speedSlow = document.getElementById('btnSpeedSlow');
 
 let timer = null;
 
@@ -15,7 +18,12 @@ btnPlay.addEventListener('click', vidAction);
 btnPause.addEventListener('click', vidAction);
 btnStop.addEventListener('click', vidAction);
 mute.addEventListener('click', muteAction);
-fullScreen.addEventListener('click', screenAction);
+fullScreen.addEventListener('click', toggleFullScreen);
+seekslider.addEventListener('change', vidSeek);
+myVideo.addEventListener('timeupdate', seekTimeUpdate);
+speedUp.addEventListener('click', speed);
+speedSlow.addEventListener('click', speed);
+
 
 //Volume
 let alterVolume = function(dir) {
@@ -65,12 +73,36 @@ function muteAction() {
 }
 
 //FullScreen
-function screenAction() {
-
+function toggleFullScreen() {
+    if(myVideo.requestFullScreen) {
+        myVideo.requestFullScreen();
+    } else if(myVideo.webkitRequestFullScreen) {
+        myVideo.webkitRequestFullScreen();
+    }else if(myVideo.mozRequestFullScreen) {
+        myVideo.mozRequestFullScreen();
+    }
 }
 
+//progressbar
+function vidSeek() {
+    let seekTo = myVideo.duration * (seekslider.value / 100);
+    myVideo.currentTime = seekTo;
+}
+function seekTimeUpdate () {
+    let newTime = myVideo.currentTime * (100 / myVideo.duration);
+    seekslider.value = newTime;
+}
 
-
+//playback rate
+function speed() {
+    if(speedSlow) {
+        myVideo.playbackRate = 0.75;
+        if(speedSlow) myVideo.playbackRate = 0.5;
+    } else if(speedUp) {
+        myVideo.playbackRate = 1.75;
+        if(speedUp) myVideo.playbackRate =2.0;
+    }
+}
 
 
 //timer
