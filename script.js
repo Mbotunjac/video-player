@@ -12,6 +12,7 @@ const speedUp = document.getElementById('btnSpeedUp');
 const speedSlow = document.getElementById('btnSpeedSlow');
 
 let timer = null;
+let currentPlaybackRateIndex = 2 // 1.0x
 
 
 btnPlay.addEventListener('click', vidAction);
@@ -21,8 +22,8 @@ mute.addEventListener('click', muteAction);
 fullScreen.addEventListener('click', toggleFullScreen);
 seekslider.addEventListener('change', vidSeek);
 myVideo.addEventListener('timeupdate', seekTimeUpdate);
-speedUp.addEventListener('click', speed);
-speedSlow.addEventListener('click', speed);
+speedUp.addEventListener('click', () => adjustPlaybackSpeed('up'));
+speedSlow.addEventListener('click', () => adjustPlaybackSpeed('down'));
 
 
 //Volume
@@ -94,14 +95,20 @@ function seekTimeUpdate () {
 }
 
 //playback rate
-function speed() {
-    if(speedSlow) {
-        myVideo.playbackRate = 0.75;
-        if(speedSlow) myVideo.playbackRate = 0.5;
-    } else if(speedUp) {
-        myVideo.playbackRate = 1.75;
-        if(speedUp) myVideo.playbackRate =2.0;
+function adjustPlaybackSpeed(rateAdjustment) {
+    const availablePlaybackRates = [0.5, 0.75, 1, 1.5, 2.0]
+    if (
+        rateAdjustment === 'up' && 
+        (currentPlaybackRateIndex + 1) <= availablePlaybackRates.length 
+    ) {
+        currentPlaybackRateIndex++;
+    } else if (
+        rateAdjustment === 'down' && 
+        currentPlaybackRateIndex > 0 
+    ) {
+        currentPlaybackRateIndex--;
     }
+    myVideo.playbackRate = availablePlaybackRates[currentPlaybackRateIndex]
 }
 
 

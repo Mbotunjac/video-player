@@ -23,9 +23,8 @@ video {
     width: 150%;
 }
 
-
 button {
     margin: auto;
-    padding: 2%;
-    border-radius: 40px;
+    padding: 0 2%;
+    border-radius: 10px;
 }
