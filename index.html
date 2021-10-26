@@ -19,7 +19,15 @@
             <source src="/video/clip1.mp4"/>
         </video>
 
-        <output class="time-out" id="timeOut">Time: 0</output>
+        <div class="timer"> 
+            <div class = "progress">
+                <progress id="progress" value="0" min="0">
+                    <span id="progress-bar"></span>
+                </progress>
+            </div>
+            <output class="time-out" id="timeOut">Time: 0</output>
+        </div>
+
         <div class="play-buttons">
             <button class="btn play" id="btnPlay">Play</button>
             <button class="btn pause" id="btnPause">Pause</button>

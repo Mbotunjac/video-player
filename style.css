@@ -5,5 +5,52 @@
 
 body {
     margin: auto;
+    padding: 10%;
 }
 
+video {
+    width: 100%;
+    height: auto;
+}
+
+.timer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* fullscreen */
+html:-ms-fullscreen {
+	width:100%;
+}
+:-webkit-full-screen {
+	background-color:transparent;
+}
+/* hide controls on fullscreen with WebKit */
+figure[data-fullscreen=true] video::-webkit-media-controls {
+	display:none !important;
+}
+figure[data-fullscreen=true] {
+	max-width:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+figure[data-fullscreen=true] video {
+	height:auto;
+}
+figure[data-fullscreen=true] figcaption {
+	display:none;
+}
+figure[data-fullscreen=true] .controls {
+	position:absolute;
+	bottom:2%;
+	width:100%;
+	z-index:2147483647;
+}
+figure[data-fullscreen=true] .controls li {
+	width:5%;
+}
+figure[data-fullscreen=true] .controls .progress {
+	width:68%;
+}

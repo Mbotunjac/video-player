@@ -17,7 +17,7 @@ btnStop.addEventListener('click', vidAction);
 mute.addEventListener('click', muteAction);
 fullScreen.addEventListener('click', screenAction);
 
-
+//Volume
 let alterVolume = function(dir) {
     let currentVolume = Math.floor(myVideo.volume * 10) / 10;
     if (dir === '+') {
@@ -35,7 +35,7 @@ volumeDown.addEventListener('click', function(e) {
     alterVolume('-');
 });
 
-
+//play, stop, pause
 function vidAction(event) {
     switch(event.target.id) {
         case "btnPlay":
@@ -59,10 +59,6 @@ function playVideo() {
 }
 
 
-function update() {
-    timeOut.innerHTML = "Time: " + myTime(myVideo.currentTime) + "/" + myTime(myVideo.duration);
-}
-
 //Mute
 function muteAction() {
     myVideo.muted = !myVideo.muted;
@@ -71,6 +67,15 @@ function muteAction() {
 //FullScreen
 function screenAction() {
 
+}
+
+
+
+
+
+//timer
+function update() {
+    timeOut.innerHTML = "Time: " + myTime(myVideo.currentTime) + "/" + myTime(myVideo.duration);
 }
 
 function myTime(time) {
